@@ -1,0 +1,41 @@
+﻿@import "../../wwwroot/scss/0-Utils/0-Utils";
+
+:global(main) {
+    padding: 4rem;
+    height: 100vh;
+
+    .icons {
+        a {
+            padding: 0.4rem;
+
+            &:hover {
+                color: $secondary-color;
+                @include EaseOut;
+            }
+        }
+    }
+
+    div#home {
+        overflow: hidden;
+
+        .title {
+            //margin-top: 20vh;
+            //margin-left: 20vw;
+            //margin-right: 20vw;
+            margin: 20vh 20vw 5vh;
+            min-width: 50vw;
+            //border-bottom: solid 0.5rem $secondary-color;
+            //border: solid 0.5rem $secondary-color;
+        }
+    }
+}
+
+
+/*
+    Mobile
+*/
+@include MediaSmall {
+    div#home.title {
+        margin-top: 10vh;
+    }
+}

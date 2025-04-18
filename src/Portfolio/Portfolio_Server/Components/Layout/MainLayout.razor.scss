@@ -1,0 +1,46 @@
+﻿@import "../../wwwroot/scss/0-Utils/0-Utils";
+
+footer {
+    font-size: 1rem;
+    position: fixed;
+    bottom: 0.4rem;
+    text-align: right;
+    padding: 1rem;
+    color: SetTextColor($primary-color);
+}
+
+
+/*
+    Tablets
+*/
+@include MediaMedium {
+    main {
+        align-items: center;
+        text-align: center;
+
+        .lg-heading {
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+/*
+    Desktop
+*/
+@include MediaLarge {
+    main {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/*
+    Wdescreens
+*/
+@include MediaHuge {
+    main {
+        align-items: center;
+        text-align: center;
+    }
+}

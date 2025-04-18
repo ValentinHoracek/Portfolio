@@ -1,0 +1,23 @@
+﻿<div>
+    <input type="checkbox" id="overlay-input" />
+    <label for="overlay-input" id="overlay-button" @onclick="ToggleOverlay"><span></span></label>
+</div>
+<nav id="overlay" class="@OverlayClass">
+    <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+@code {
+    private bool IsOverlayVisible { get; set; }
+
+    private string OverlayClass => IsOverlayVisible ? "active" : string.Empty;
+
+    private void ToggleOverlay()
+    {
+        IsOverlayVisible = !IsOverlayVisible;
+    }
+}
