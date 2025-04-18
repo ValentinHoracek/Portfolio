@@ -1,23 +1,75 @@
 ﻿<div>
-    <input type="checkbox" id="overlay-input" />
-    <label for="overlay-input" id="overlay-button" @onclick="ToggleOverlay"><span></span></label>
+    @* <input type="checkbox" id="overlay-input" />
+    <label for="overlay-input" id="overlay-button" @onclick="ToggleOverlay"><span></span></label> *@
+    <button class="overlay-button @(IsOverlayVisible ? "active" : "")" @onclick="ToggleOverlay">
+        <span></span>
+    </button>
 </div>
-<nav id="overlay" class="@OverlayClass">
+<nav id="overlay" class="overlay @(IsOverlayVisible ? "active" : "")">
     <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Resume</a></li>
-        <li><a href="#">Contact</a></li>
+        @if (!IsHomePage())
+        {
+            <li>
+                <NavLink href="/" class="nav-link" Match="NavLinkMatch.All" @onclick="ToggleOverlay">
+                    Home
+                </NavLink>
+            </li>
+        }
+        <li>
+            <NavLink href="/about" class="nav-link" @onclick="ToggleOverlay">
+                About Me
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="/developer" class="nav-link" @onclick="ToggleOverlay">
+                Developer
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="/manager" class="nav-link" @onclick="ToggleOverlay">
+                Project Manager
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="/dancer" class="nav-link" @onclick="ToggleOverlay">
+                Dancer
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="/contact" class="nav-link" @onclick="ToggleOverlay">
+                Contact
+            </NavLink>
+        </li>
+        <li>
+            <div class="icons">
+                <a href="#!">
+                    <i class="fab fa-linkedin fa-3x"></i>
+                </a>
+                <a href="#!">
+                    <i class="fab fa-github-square fa-3x"></i>
+                </a>
+                <a href="#!">
+                    <i class="fas fa-envelope-square fa-3x"></i>
+                </a>
+            </div>
+        </li>
     </ul>
 </nav>
 
 @code {
     private bool IsOverlayVisible { get; set; }
 
-    private string OverlayClass => IsOverlayVisible ? "active" : string.Empty;
-
     private void ToggleOverlay()
     {
         IsOverlayVisible = !IsOverlayVisible;
+    }
+
+    private bool IsHomePage()
+    {
+        // Get the current relative path
+        var relativePath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+
+        // When the result is empty (or simply "/"), we're on the home page.
+        return string.IsNullOrEmpty(relativePath);
     }
 }

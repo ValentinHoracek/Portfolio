@@ -4,17 +4,6 @@
     padding: 4rem;
     height: 100vh;
 
-    .icons {
-        a {
-            padding: 0.4rem;
-
-            &:hover {
-                color: $secondary-color;
-                @include EaseOut;
-            }
-        }
-    }
-
     div#home {
         overflow: hidden;
 

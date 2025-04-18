@@ -1,6 +1,6 @@
 ﻿@import "../../wwwroot/scss/0-Utils/0-Utils";
 
-#overlay-button {
+.overlay-button {
     position: absolute;
     right: 2em;
     top: 3em;
@@ -8,6 +8,8 @@
     z-index: 5;
     cursor: pointer;
     user-select: none;
+    background: none;
+    border: none;
 
     span {
         height: 4px;
@@ -18,16 +20,9 @@
         display: block;
         @include EaseOut;
 
-        &::before {
-            top: -10px;
-            visibility: visible;
-        }
-
-        &::after {
-            top: 10px;
-        }
 
         &::before, &::after {
+            left: 0;
             height: 4px;
             width: 35px;
             border-radius: 2px;
@@ -36,13 +31,38 @@
             content: "";
             @include EaseOut;
         }
+
+
+        &::before {
+            top: -10px;
+            visibility: visible;
+        }
+
+        &::after {
+            top: 10px;
+        }
+    }
+
+    &.active {
+        span, &:hover span {
+            background: transparent; // Hide the center line
+
+            &::before {
+                transform: rotate(45deg) translate(7px, 7px);
+                opacity: 1;
+            }
+
+            &::after {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
     }
 
     &:hover span, &:hover span::before, &:hover span::after {
         background: #222;
     }
 }
-
+/*
 input[type=checkbox] {
     display: none;
 
@@ -66,7 +86,7 @@ input[type=checkbox] {
             }
         }
     }
-}
+}*/
 
 #overlay {
     height: 100vh;
@@ -75,6 +95,8 @@ input[type=checkbox] {
     z-index: 2;
     visibility: hidden;
     position: fixed;
+    left: 0;
+    top: 0;
 
     &.active {
         visibility: visible;
@@ -93,7 +115,18 @@ input[type=checkbox] {
         li {
             padding: 1em;
 
-            a {
+            .icons {
+                a {
+                    padding: 0.4rem;
+
+                    &:hover {
+                        color: $secondary-color;
+                        @include EaseOut;
+                    }
+                }
+            }
+
+            .nav-link {
                 color: SetTextColor($secondary-color);
                 text-decoration: none;
                 font-size: 1.5em;
@@ -104,6 +137,13 @@ input[type=checkbox] {
                     font-size: 2em;
                     @include EaseOut;
                 }
+            }
+
+            .nav-link.active {
+                background: $secondary-color;
+                color: $primary-color;
+                font-size: 2em;
+                @include EaseOut;
             }
         }
     }

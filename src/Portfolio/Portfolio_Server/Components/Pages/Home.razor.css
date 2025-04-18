@@ -1,1 +1,1 @@
-:global(main){padding:4rem;height:100vh}:global(main) .icons a{padding:.4rem}:global(main) .icons a:hover{color:#793737;transition:all .5s ease-out}:global(main) div#home{overflow:hidden}:global(main) div#home .title{margin:20vh 20vw 5vh;min-width:50vw}@media screen and (max-width: 500px){div#home.title{margin-top:10vh}}
+:global(main){padding:4rem;height:100vh}:global(main) div#home{overflow:hidden}:global(main) div#home .title{margin:20vh 20vw 5vh;min-width:50vw}@media screen and (max-width: 500px){div#home.title{margin-top:10vh}}
