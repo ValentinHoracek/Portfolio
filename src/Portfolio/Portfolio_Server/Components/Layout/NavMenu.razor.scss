@@ -98,7 +98,7 @@
                     padding-right: 1rem;
 
                     &:hover {
-                        color: SetTextColor($secondary-color);
+                        color: $primary-color;
                         font-size: 3rem;
                         @include EaseOut;
                     }
