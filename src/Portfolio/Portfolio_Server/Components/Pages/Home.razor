@@ -2,25 +2,23 @@
 
 <PageTitle>Valentin Horacek</PageTitle>
 
-<div id="home">
-    <div class="title">
-        <h1 class="lg-heading">Valentin <span class="text-secondary">Horacek</span></h1>
-        <h2 class="sm-heading"></h2>
-        <button class="btn" type="button">
-            Developer
-        </button>
-        <button class="btn" type="button">
-            Project Manager
-        </button>
-        <button class="btn" type="button">
-            Dancer
-        </button>
+<div class="home">
+    <!-- Headline: on desktop names are adjacent, on mobile they stack -->
+    <div class="headline">
+        <span class="first-name">Valentin</span>
+        <span class="surname">Horacek</span>
     </div>
-    
-    <button class="btn" type="button">
-        Projects
-    </button>
-    <button class="btn" type="button">
-        Resume
-    </button>
+
+    <!-- Job Strips Section -->
+    <section class="job-strips">
+        <NavLink href="/developer" class="job-strip developer">
+            <div class="overlay-text">Developer</div>
+        </NavLink>
+        <NavLink href="/manager" class="job-strip manager">
+            <div class="overlay-text">Manager</div>
+        </NavLink>
+        <NavLink href="/dancer" class="job-strip dancer">
+            <div class="overlay-text">Dancer</div>
+        </NavLink>
+    </section>
 </div>

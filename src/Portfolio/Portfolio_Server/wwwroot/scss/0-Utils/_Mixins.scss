@@ -6,6 +6,11 @@
 {
     transition: all 0.5s ease-out;
 }
+
+@mixin EaseOutFast {
+    transition: all 0.2s ease-out;
+}
+
 @mixin FontWeightGrow($color)
 {
     text-shadow:
@@ -25,50 +30,6 @@
     {
         background: lighten($primary-color, 100%);
         color: darken($text-color, 100%);
-    }
-}
-
-@mixin Background
-{
-    @if $show-home-image 
-    {
-        &#bg-img
-        {
-            background: $home-image;
-            background-attachment: fixed;
-            background-size: cover;
-
-            &:after 
-            {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100vw;
-                height: 100vh;
-                background: rgba($primary-color, $background-opacity);
-                z-index: -1;
-            }
-        }
-        @include MediaSmall
-        {
-            &#bg-img
-            {
-                background-repeat: no-repeat;
-                background-position: -30vw;
-            }
-        }
-        @include MediaHuge
-        {
-            &#bg-img
-            {
-                background-size: 80vw;
-                background-repeat: no-repeat;
-                background-position: 10vw -10vh ;
-                
-            }
-
-        }
     }
 }
 
@@ -102,11 +63,11 @@
 }
 
 /*
-    Media miixins
+    Media mixins
 */
 @mixin MediaSmall 
 {
-    @media screen and (max-width: 500px)
+    @media screen and (max-width: 768px)
     {
         @content;
     }
@@ -114,24 +75,7 @@
 
 @mixin MediaMedium 
 {
-    @media screen and (min-width: 500px) and (max-width: 768px)
-    {
-        @content;
-    }
-}
-
-@mixin MediaLarge 
-{
     @media screen and (min-width: 769px)
-    and (max-width: 1170px)
-    {
-        @content;
-    }
-}
-
-@mixin MediaHuge
-{
-    @media screen and (min-width: 1171px)
     {
         @content;
     }

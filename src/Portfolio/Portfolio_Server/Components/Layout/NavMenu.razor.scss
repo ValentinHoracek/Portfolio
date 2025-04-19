@@ -62,37 +62,12 @@
         background: #222;
     }
 }
-/*
-input[type=checkbox] {
-    display: none;
-
-    &:checked ~ #overlay {
-        visibility: visible;
-    }
-
-    &:checked ~ #overlay-button {
-        &:hover span, span {
-            background: transparent;
-        }
-
-        span {
-            &::before {
-                transform: rotate(45deg) translate(7px, 7px);
-                opacity: 1;
-            }
-
-            &::after {
-                transform: rotate(-45deg) translate(7px, -7px);
-            }
-        }
-    }
-}*/
 
 #overlay {
     height: 100vh;
     width: 100vw;
     background: $secondary-color;
-    z-index: 2;
+    z-index: 4;
     visibility: hidden;
     position: fixed;
     left: 0;
@@ -117,33 +92,32 @@ input[type=checkbox] {
 
             .icons {
                 a {
-                    padding: 0.4rem;
+                    font-size: 2rem;
+                    padding-top: 2rem;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
 
                     &:hover {
-                        color: $secondary-color;
+                        color: SetTextColor($secondary-color);
+                        font-size: 3rem;
                         @include EaseOut;
                     }
                 }
             }
+        }
+    }
+}
 
-            .nav-link {
-                color: SetTextColor($secondary-color);
-                text-decoration: none;
-                font-size: 1.5em;
-
-                &:hover {
-                    background: $secondary-color;
-                    color: $primary-color;
-                    font-size: 2em;
-                    @include EaseOut;
-                }
+@include MediaSmall {
+    #overlay ul li {
+        .icons {
+            a {
+                font-size: 1rem;
+                padding: 0.5rem;
             }
 
-            .nav-link.active {
-                background: $secondary-color;
-                color: $primary-color;
-                font-size: 2em;
-                @include EaseOut;
+            &:hover {
+                font-size: 2rem;
             }
         }
     }

@@ -10,36 +10,38 @@
         @if (!IsHomePage())
         {
             <li>
-                <NavLink href="/" class="nav-link" Match="NavLinkMatch.All" @onclick="ToggleOverlay">
+                <NavLink href="/" class="@GetNavLinkClass("/")" Match="NavLinkMatch.All" @onclick="ToggleOverlay">
                     Home
                 </NavLink>
             </li>
         }
         <li>
-            <NavLink href="/about" class="nav-link" @onclick="ToggleOverlay">
+            <NavLink href="/about" class="@GetNavLinkClass("/about")" @onclick="ToggleOverlay">
                 About Me
             </NavLink>
         </li>
         <li>
-            <NavLink href="/developer" class="nav-link" @onclick="ToggleOverlay">
+            <NavLink href="/developer" class="@GetNavLinkClass("/developer")" @onclick="ToggleOverlay">
                 Developer
             </NavLink>
         </li>
         <li>
-            <NavLink href="/manager" class="nav-link" @onclick="ToggleOverlay">
+            <NavLink href="/manager" class="@GetNavLinkClass("/manager")" @onclick="ToggleOverlay">
                 Project Manager
             </NavLink>
         </li>
         <li>
-            <NavLink href="/dancer" class="nav-link" @onclick="ToggleOverlay">
+            <NavLink href="/dancer" class="@GetNavLinkClass("/dancer")" @onclick="ToggleOverlay">
                 Dancer
             </NavLink>
         </li>
+
         <li>
-            <NavLink href="/contact" class="nav-link" @onclick="ToggleOverlay">
+            <NavLink href="/contact" class="@GetNavLinkClass("/contact")" @onclick="ToggleOverlay">
                 Contact
             </NavLink>
         </li>
+
         <li>
             <div class="icons">
                 <a href="#!">
@@ -57,6 +59,12 @@
 </nav>
 
 @code {
+    private string GetNavLinkClass(string href)
+    {
+        // Return the base class and conditionally add "no-transition"
+        return IsOverlayVisible ? "nav-link" : "nav-link no-transition";
+    }
+
     private bool IsOverlayVisible { get; set; }
 
     private void ToggleOverlay()
