@@ -10,6 +10,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* Headline styles */
@@ -67,11 +68,16 @@
         transform: skew(-10deg);
         @include EaseOut;
         overflow: visible;
-        /*.job-label {
-            background-color: $secondary-color;
+
+        .job-label {
+            position: absolute;
+            background-color: #fff;
+            color: SetTextColor(#fff);
+            top: 0;
+            left: 0;
             padding: 1.5rem;
-            opacity: 0.5;
-        }*/
+            opacity: 0.7;
+        }
 
         .job-bg {
             position: absolute;
@@ -81,6 +87,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             @include EaseOut;
         }
 
@@ -89,7 +96,7 @@
         }
         /* Background images for specific job bg */
         .developer {
-            background-image: url('/img/dancer.jpg');
+            background-image: url('/img/developer_greyscale.jpg');
 
             &:hover {
                 width: 400%;
@@ -98,7 +105,7 @@
         }
 
         .manager {
-            background-image: url('/img/dancer.jpg');
+            background-image: url('/img/manager_greyscale.jpg');
 
             &:hover {
                 width: 400%;
@@ -107,11 +114,12 @@
         }
 
         .dancer {
-            background-image: url('/img/dancer.jpg');
+            background-image: url('/img/dancer_greyscale.jpg');
 
             &:hover {
                 width: 400%;
                 transform: translateX(-75%);
+                background-position-y: 0;
             }
         }
     }
@@ -163,7 +171,6 @@
             .job-label {
                 padding: 0.5rem;
                 width: 40vw;
-                margin-left: 20vw;
             }
         }
     }
