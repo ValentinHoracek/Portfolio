@@ -77,6 +77,8 @@
             left: 0;
             padding: 1.5rem;
             opacity: 0.7;
+            font-size: 1.25rem;
+            font-weight: bold;
         }
 
         .job-bg {
@@ -161,6 +163,8 @@
             }
 
             .dancer {
+                background-position-y: -5vh;
+
                 &:hover {
                     width: 120%;
                     height: 35vh;
@@ -169,6 +173,7 @@
             }
 
             .job-label {
+                font-size: 1rem;
                 padding: 0.5rem;
                 width: 40vw;
             }
