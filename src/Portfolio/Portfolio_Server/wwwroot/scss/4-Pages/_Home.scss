@@ -1,8 +1,9 @@
-﻿@import "../../wwwroot/scss/0-Utils/0-Utils";
-
+﻿/*
+    Home apge
+*/
 
 /* Home container styles */
-.home {
+#home {
     background: $primary-color;
     color: SetTextColor($primary-color);
     min-height: 100vh;

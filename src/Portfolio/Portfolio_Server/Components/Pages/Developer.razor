@@ -1,56 +1,145 @@
 ﻿@page "/developer"
+@using Portfolio_Server.Models
 
 <PageTitle>Developer - Valentin Horacek</PageTitle>
 
+
 <div id="developer">
-    <h1>Tech Stack</h1>
-    <ul>
-        <li>C#</li>
-        <li>.NET</li>
-        <li>Blazor</li>
-        <li>SQL</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>SCSS (CSS preprocessor)</li>
-    </ul>
+    <h1>Developer</h1>
+    <div class="description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam orci, mollis in aliquet id, mollis eget augue. Nullam egestas ullamcorper massa vitae elementum. Aliquam at ligula vitae enim ultrices dapibus non vel lacus. Ut mattis ipsum non dui rutrum mattis. Duis euismod nulla non mauris rhoncus, ut eleifend nulla congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis at arcu sit amet hendrerit. Nulla ipsum sem, fermentum non arcu in, accumsan maximus lectus. Nam fermentum elit posuere ipsum tristique convallis. Phasellus dictum consectetur leo, vitae malesuada justo sollicitudin in. Donec vitae dui id turpis aliquet interdum.</p>
+    </div>
 
-    <h1>Tools/Technologies</h1>
-    <ul>
-        <li>Azure</li>
-        <li>AWS</li>
-        <li>Docker</li>
-        <li>GIT</li>
-        <li>Elastic</li>
-        <li>Agile Methodologies</li>
-    </ul>
 
-    <h1>Data</h1>
-    <ul>
-        <li>XML</li>
-        <li>JSON</li>
-    </ul>
 
-    <h1>Documentation</h1>
-    <ul>
-        <li>JIRA</li>
-        <li>Confluence</li>
-        <li>Swagger</li>
-    </ul>
-
-    <h1>Architectures</h1>
-    <ul>
-        <li>REST API</li>
-        <li>MVC</li>
-        <li>MVVM</li>
-        <li>Microservices</li>
-    </ul>
-
-    <h1>Testing</h1>
-    <ul>
-        <li>Moq</li>
-        <li>Postman</li>
-        <li>Unit Tests</li>
-        <li>Integration Tests</li>
-        <li>Test Scenarios</li>
-    </ul>
+    <div class="group">
+        <div class="title">
+            <h2>Skills</h2>
+        </div>
+        <div class="skills">
+            @foreach (var item in skills)
+            {
+                <div class="skill-item">
+                    <h2>@item.Title</h2>
+                    <ul>
+                        @foreach (var skill in item.Skills)
+                        {
+                            <li>@skill</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="group">
+        <div class="title">
+            <h2>Timeline</h2>
+        </div>
+        <div class="timeline">
+            @foreach (var item in timeline)
+            {
+                <div class="timeline-item">
+                    <h2>@item.Title</h2>
+                    <p>@item.Description</p>
+                </div>
+            }
+        </div>
+    </div>
 </div>
+
+@code{
+    List<TimelineItem> timeline = new()
+    {
+        new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },
+    };
+
+    List<SkillItem> skills = new()
+    {
+        new SkillItem
+        {
+            Title = "Programming Languages",
+            Skills = new List<string>
+            {
+                "C#",
+                "Java",
+                "Python",
+                "JavaScript"
+            }
+        },
+        new SkillItem
+        {
+            Title = "Frameworks",
+            Skills = new List<string>
+            {
+                "ASP.NET Core",
+                "React",
+                "Angular"
+            }
+        },
+        new SkillItem
+        {
+            Title = "Databases",
+            Skills = new List<string>
+            {
+                "SQL Server",
+                "MySQL",
+                "MongoDB"
+            }
+        },
+        new SkillItem
+        {
+            Title = "Tools",
+            Skills = new List<string>
+            {
+                "Git",
+                "Docker",
+                "Kubernetes"
+            }
+        },
+        new SkillItem
+        {
+            Title = "Cloud Platforms",
+            Skills = new List<string>
+            {
+                "Azure",
+                "AWS"
+            }
+        },
+    };
+}

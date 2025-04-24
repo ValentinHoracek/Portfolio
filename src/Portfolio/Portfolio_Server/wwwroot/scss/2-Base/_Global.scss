@@ -40,6 +40,13 @@ footer {
     padding: 1rem;
     width: 100%;
     color: SetTextColor($primary-color);
-    z-index: 2;
+    z-index: 1;
 }
 
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
