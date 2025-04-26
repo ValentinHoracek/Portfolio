@@ -6,8 +6,8 @@
 
 <div id="developer">
     <h1>Developer</h1>
-    <div class="description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam orci, mollis in aliquet id, mollis eget augue. Nullam egestas ullamcorper massa vitae elementum. Aliquam at ligula vitae enim ultrices dapibus non vel lacus. Ut mattis ipsum non dui rutrum mattis. Duis euismod nulla non mauris rhoncus, ut eleifend nulla congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis at arcu sit amet hendrerit. Nulla ipsum sem, fermentum non arcu in, accumsan maximus lectus. Nam fermentum elit posuere ipsum tristique convallis. Phasellus dictum consectetur leo, vitae malesuada justo sollicitudin in. Donec vitae dui id turpis aliquet interdum.</p>
+    <div class="dev-description">
+        <p>I specialize in fullstack development, bringing a strong focus to both technical depth and project-wide quality. Through my strengths in processing details, fostering innovation, and systematically solving problems, I deliver solutions that are reliable, scalable, and user-centric.</p>
     </div>
 
 
@@ -17,6 +17,12 @@
         {
             <div class="skill-card">
                 <div class="skill-card-header">
+                    <div class="dev-icons">
+                        @foreach (var icon in category.Icons)
+                        {
+                            <i class="@icon"></i>
+                        }
+                    </div>
                     <h2>@category.Title</h2>
                 </div>
                 <div class="skill-card-body">
@@ -77,7 +83,8 @@
                         "YAML",
                     }
                 },
-            }
+            },
+            Icons = new List<string> { "fa-brands fa-html5", "fa-solid fa-paintbrush"},
         },
         new SkillCategory
         {
@@ -142,7 +149,8 @@
                         "Oracle, MySQL, MSSQL",
                     }
                 },
-            }
+            },
+            Icons = new List<string> { "fa-solid fa-code", "fa-solid fa-database"},
         },
         new SkillCategory
         {
@@ -202,7 +210,8 @@
                         "ELK Stack",
                     }
                 },
-            }
+            },
+            Icons = new List<string> { "fa-solid fa-bug", "fa-solid fa-search"},
         },
         new SkillCategory
         {
@@ -263,7 +272,8 @@
                         "PowerShell",
                     }
                 },
-            }
+            },
+            Icons = new List<string> { "fa-solid fa-cogs", "fa-solid fa-cloud-upload"},
         },
         new SkillCategory
         {
@@ -289,7 +299,8 @@
                         "Jira",
                     }
                 },
-            }
+            },
+            Icons = new List<string> { "fa-solid fa-clipboard-list", "fa-solid fa-calendar-alt"},
         },
     };
 }

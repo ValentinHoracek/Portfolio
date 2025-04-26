@@ -14,8 +14,10 @@
     padding: 5%;
     gap: 2rem;
 
-    .descritpion {
-        width: 80vw;
+    .dev-description {
+        display: flex;
+        width: 50vw;
+        text-align: center;
     }
 }
 
@@ -47,8 +49,34 @@
         padding: 1rem;
         font-weight: bold;
         text-align: center;
+        align-items: center;
+        justify-content: center;
         z-index: 1;
         position: relative;
+        display: flex;
+        gap: 1rem;
+
+        .dev-icons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 26vw;
+        }
+
+        h2 {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            white-space: nowrap;
+            padding: 0 0.5rem; // space around title
+            z-index: 1;
+        }
+
+        i {
+            font-size: 3rem;
+        }
     }
 
     .skill-card-body {

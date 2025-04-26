@@ -4,5 +4,6 @@
     {
         public string Title { get; set; }
         public List<SkillTypes> SkillTypes { get; set; }
+        public List<string> Icons { get; set; }
     }
 }
