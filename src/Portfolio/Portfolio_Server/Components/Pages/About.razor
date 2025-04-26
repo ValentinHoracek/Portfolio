@@ -1,7 +1,66 @@
 ﻿@page "/about"
+@using Portfolio_Server.Models
 
 <PageTitle>About Me</PageTitle>
 
 <div id="about">
     <p>Lorem ipsum</p>
 </div>
+
+<div class="about-group">
+    <div class="title">
+        <h2>Timeline</h2>
+    </div>
+    <div class="timeline">
+        @foreach (var item in timeline)
+        {
+            <div class="timeline-item">
+                <h2>@item.Title</h2>
+                <p>@item.Description</p>
+            </div>
+        }
+    </div>
+</div>
+
+@code{
+    List<TimelineItem> timeline = new()
+    {
+        new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },new TimelineItem
+        {
+            Title = "fs",
+            Description = "Started working at XYZ Company as a Software Developer."
+        },
+    };
+}

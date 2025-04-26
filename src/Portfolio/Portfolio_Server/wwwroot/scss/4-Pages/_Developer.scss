@@ -17,84 +17,111 @@
     .descritpion {
         width: 80vw;
     }
-    
-}
-.group {
-
-    .title {
-        text-align: center;
-        width: 80vw;
-        border-bottom: solid 0.2rem #fff;
-    }
 }
 
-.timeline {
+.skills-grid {
     display: flex;
+    border-top: solid 0.2rem #fff;
+    width: 80vw;
     justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 80vw;
-    gap: 3rem;
     flex-wrap: wrap;
-    padding-top: 2rem;
+    gap: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    overflow: visible;
+}
 
+.skill-card {
+    background: $primary-color;
+    flex-direction: column;
+    overflow: visible;
+    transform: skew(-5deg);
+    position: relative;
+    flex-grow: 1;
+    min-width: 30vw;
+    width: 30vw;
 
-    .timeline-item {
-        width: 30%;
+    .skill-card-header {
+        background-color: $tertiary-color;
+        color: SetTextColor($tertiary-color);
+        padding: 1rem;
+        font-weight: bold;
+        text-align: center;
+        z-index: 1;
+        position: relative;
+    }
+
+    .skill-card-body {
+        position: absolute;
+        opacity: 0;
+        top: 100%; // Position directly under header
+        left: 0;
+        right: 0;
+        z-index: 10;
+        max-height: 0;
+        overflow: hidden;
+        padding: 1rem;
+        @include EaseOut;
         background-color: $secondary-color;
-        //border-radius: 1rem;
-        transform: skew(-5deg);
-        padding: 2rem;
+        color: SetTextColor($secondary-color);
+        text-align: center;
 
-        &:hover {
-            transform: skew(-5deg) scale(1.1); // Slightly enlarges the div
-            @include EaseOut;
+        .skill-type {
+            margin-bottom: 1rem;
+
+            h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+                color: $primary-color;
+                font-weight: bold;
+            }
+
+            ul {
+                li {
+                    margin-bottom: 0.3rem;
+                }
+            }
         }
+    }
 
-        h2 {
-            border-bottom: solid 0.1rem #fff;
+    &:hover {
+        max-height: 100vh; // allow full height
+        z-index: 10;
+
+        .skill-card-body {
+            opacity: 1;
+            max-height: 1000px;
+            padding-bottom: 1rem;
+            z-index: 10;
         }
     }
 }
 
-.skills {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    width: 80vw;
-    flex-wrap: wrap;
-    gap: 3rem;
-    padding-top: 2rem;
-
-    .skill-item {
-        min-height: 20vh;
-        flex-grow: 1;
-        padding: 2rem;
-        transform: skew(-5deg);
-        background-color: $secondary-color;
-
-        &:hover {
-            transform: skew(-5deg) scale(1.1); // Slightly enlarges the div
-            @include EaseOut;
-        }
-    }
-}
-
-/* Responsive Design */
 @include MediaSmall {
-    .timeline
-    {
-        .timeline-item {
-            width: 100%;
-        }
-    }
-}
+    .skill-card {
+        flex: 0 1 100%;
+        max-width: 100%;
 
-@include MediaMedium {
-    .timeline {
-        .timeline-item {
-            width: 100%;
+        .skill-card-body {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            pointer-events: auto;
+            max-height: none;
+            margin-top: 0;
+            box-shadow: none;
+            padding: 1rem;
+        }
+
+        &:hover .skill-card-body {
+            /* Disable hover effect on small screens */
         }
     }
 }
+@include MediaMedium {
+    .skill-card {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+    }

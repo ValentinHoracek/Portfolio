@@ -12,133 +12,283 @@
 
 
 
-    <div class="group">
-        <div class="title">
-            <h2>Skills</h2>
-        </div>
-        <div class="skills">
-            @foreach (var item in skills)
-            {
-                <div class="skill-item">
-                    <h2>@item.Title</h2>
-                    <ul>
-                        @foreach (var skill in item.Skills)
-                        {
-                            <li>@skill</li>
-                        }
-                    </ul>
+    <div class="skills-grid">
+        @foreach (var category in categories)
+        {
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <h2>@category.Title</h2>
                 </div>
-            }
-        </div>
-    </div>
-    <div class="group">
-        <div class="title">
-            <h2>Timeline</h2>
-        </div>
-        <div class="timeline">
-            @foreach (var item in timeline)
-            {
-                <div class="timeline-item">
-                    <h2>@item.Title</h2>
-                    <p>@item.Description</p>
+                <div class="skill-card-body">
+                    @foreach (var type in category.SkillTypes)
+                    {
+                        <div class="skill-type">
+                            <h4>@type.Title</h4>
+                            <ul>
+                                @foreach (var skill in type.Skills)
+                                {
+                                    <li>@skill</li>
+                                }
+                            </ul>
+                        </div>
+                    }
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
+
 </div>
 
 @code{
-    List<TimelineItem> timeline = new()
+    List<SkillCategory> categories = new()
     {
-        new TimelineItem
+        new SkillCategory
         {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },new TimelineItem
-        {
-            Title = "fs",
-            Description = "Started working at XYZ Company as a Software Developer."
-        },
-    };
-
-    List<SkillItem> skills = new()
-    {
-        new SkillItem
-        {
-            Title = "Programming Languages",
-            Skills = new List<string>
+            Title = "Frontend",
+            SkillTypes = new List<SkillTypes>
             {
-                "C#",
-                "Java",
-                "Python",
-                "JavaScript"
+                new SkillTypes
+                {
+                    Title = "Frameworks",
+                    Skills = new List<string>
+                    {
+                        "Blazor",
+                        "Razor Pages",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Markup & Styling",
+                    Skills = new List<string>
+                    {
+                        "HTML",
+                        "CSS",
+                        "SCSS",
+                        "Bootstrap",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Data Formats",
+                    Skills = new List<string>
+                    {
+                        "JSON",
+                        "XML",
+                        "YAML",
+                    }
+                },
             }
         },
-        new SkillItem
+        new SkillCategory
         {
-            Title = "Frameworks",
-            Skills = new List<string>
+            Title = "Backend",
+            SkillTypes = new List<SkillTypes>
             {
-                "ASP.NET Core",
-                "React",
-                "Angular"
+                new SkillTypes
+                {
+                    Title = "Programing Languages",
+                    Skills = new List<string>
+                    {
+                        "C#",
+                        "F#",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Frameworks & Platforms",
+                    Skills = new List<string>
+                    {
+                        ".NET",
+                        ".NET Core",
+                        ".NET 8",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "ORMs & Data Access",
+                    Skills = new List<string>
+                    {
+                        "Entity Framework",
+                        "LINQ",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Architectural Patterns",
+                    Skills = new List<string>
+                    {
+                        "MVC",
+                        "MVVM",
+                        "Microservices",
+                        "Clean Architecture",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "API",
+                    Skills = new List<string>
+                    {
+                        "REST API",
+                        "Swagger / OpenAPI",
+                        "gRPC",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Database Systems",
+                    Skills = new List<string>
+                    {
+                        "SQL",
+                        "Oracle, MySQL, MSSQL",
+                    }
+                },
             }
         },
-        new SkillItem
+        new SkillCategory
         {
-            Title = "Databases",
-            Skills = new List<string>
+            Title = "Testing & QA",
+            SkillTypes = new List<SkillTypes>
             {
-                "SQL Server",
-                "MySQL",
-                "MongoDB"
+                new SkillTypes
+                {
+                    Title = "Testing Types",
+                    Skills = new List<string>
+                    {
+                        "Unit Testing",
+                        "Integration Testing",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Frameworks & Tools",
+                    Skills = new List<string>
+                    {
+                        "NUnit",
+                        "Moq",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "API Testing Tools",
+                    Skills = new List<string>
+                    {
+                        "Postman",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Methodologies",
+                    Skills = new List<string>
+                    {
+                        "Test-Driven Development (TDD)",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Code Quality & Analysis",
+                    Skills = new List<string>
+                    {
+                        "Code Reviews",
+                        "Static Code Analysis",
+                        "SonarQube",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Logging & Observability",
+                    Skills = new List<string>
+                    {
+                        "Serilog",
+                        "ELK Stack",
+                    }
+                },
             }
         },
-        new SkillItem
+        new SkillCategory
         {
-            Title = "Tools",
-            Skills = new List<string>
+            Title = "DevOps",
+            SkillTypes = new List<SkillTypes>
             {
-                "Git",
-                "Docker",
-                "Kubernetes"
+                new SkillTypes
+                {
+                    Title = "Version Control",
+                    Skills = new List<string>
+                    {
+                        "Git",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Containerization & Orchestration",
+                    Skills = new List<string>
+                    {
+                        "Docker",
+                        "Kubernetes (K8s)",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "CI/CD Tools",
+                    Skills = new List<string>
+                    {
+                        "TeamCity",
+                        "Jenkins",
+                        "GitHub Actions",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Cloud Platforms",
+                    Skills = new List<string>
+                    {
+                        "Microsoft Azure",
+                        "AWS",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Web Servers",
+                    Skills = new List<string>
+                    {
+                        "Nginx",
+                        "ISS",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Scripting",
+                    Skills = new List<string>
+                    {
+                        "Bash",
+                        "PowerShell",
+                    }
+                },
             }
         },
-        new SkillItem
+        new SkillCategory
         {
-            Title = "Cloud Platforms",
-            Skills = new List<string>
+            Title = "Project Management",
+            SkillTypes = new List<SkillTypes>
             {
-                "Azure",
-                "AWS"
+                new SkillTypes
+                {
+                    Title = "Methodologies",
+                    Skills = new List<string>
+                    {
+                        "Agile",
+                        "Scrum",
+                        "Kanban",
+                        "Lean Software Development",
+                    }
+                },
+                new SkillTypes
+                {
+                    Title = "Task & Documentation",
+                    Skills = new List<string>
+                    {
+                        "Jira",
+                    }
+                },
             }
         },
     };
